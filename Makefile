@@ -1,4 +1,14 @@
+PREFIX ?= /usr
+
 all: clean ye
+
+install: ye
+	mkdir -p $(PREFIX)/bin
+	install -m 0755 ye $(PREFIX)/bin/ye
+
+uninstall:
+	rm -f $(PREFIX)/bin/ye
+
 
 gdb: clean ye.out
 	gdb --args ./ye.out abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz
@@ -15,4 +25,4 @@ ye.out:
 clean:
 	rm -f ye ye.out
 
-.PHONY: all gdb clean
+.PHONY: all gdb clean install uninstall
