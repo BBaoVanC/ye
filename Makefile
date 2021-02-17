@@ -13,9 +13,9 @@ uninstall:
 	rm -f $(PREFIX)/bin/ye
 
 ye:
-	gcc -o ye ye.c
+	$(CC) -o ye ye.c
 
 ye.out:
-	gcc -o ye.out ye.c -Wall -g
+	$(CC) -o ye.out ye.c -Wall -g
 
 .PHONY: all clean install uninstall
