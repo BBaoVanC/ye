@@ -8,30 +8,16 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-    char *str;
-    if (argc > 1) {
-        int i;
-        int totalsize = -1; /* start at -1 since we don't need
-                               a space on the last item */
-
-        for (i = 1; i < argc; i++) {
-            totalsize += strlen(argv[i]) + 1; /* + 1 is for the space */
+    if (argc <= 1) { /* <= 1 because the one argument is the executable name */
+        while (1) {
+            printf("y");
         }
 
-        str = malloc(totalsize);
-        strcpy(str, argv[1]);
-
-        for (i = 2; i < argc; i++) {
-            strcat(str, " ");
-            strcat(str, argv[i]);
-        }
     } else {
-        str = "y";
+        while (1) {
+            for (int i = 1; i < argc; i++) {
+                printf("%s ", argv[i]);
+            }
+        }
     }
-
-    while (1) {
-        printf("%s", str);
-    }
-
-    return 0;
 }
