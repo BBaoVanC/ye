@@ -1,6 +1,6 @@
 PREFIX ?= /usr
 
-all: clean ye
+all: ye
 
 clean:
 	rm -f ye ye.out
@@ -12,7 +12,7 @@ install: ye
 uninstall:
 	rm -f $(PREFIX)/bin/ye
 
-ye:
+ye: ye.c
 	$(CC) $(CFLAGS) -o ye ye.c
 
 ye.out:
